@@ -159,5 +159,29 @@ from Products p inner join [Order Details] od on p.ProductID = od.ProductID
 group by p.ProductName
 order by Summe desc;
 
+use northwind;
 
+select c.CompanyName, count(o.OrderId) as Anzahl from Customers c inner join  orders o on c.CustomerID = o.CustomerID
+group by c.CompanyName
+order by Anzahl asc
+;
+
+
+select c.CompanyName, count(o.OrderId) as Anzahl from Customers c left outer join  orders o on c.CustomerID = o.CustomerID
+group by c.CompanyName
+order by Anzahl asc
+;
+;
+
+select * from Customers cross join Orders;
+
+select c.CompanyName, count(o.OrderId) as Anzahl from Customers c right outer join  orders o on c.CustomerID = o.CustomerID
+group by c.CompanyName
+order by Anzahl asc
+;
+
+select c.CompanyName, count(o.OrderId) as Anzahl from Customers c Full outer join  orders o on c.CustomerID = o.CustomerID
+group by c.CompanyName
+order by Anzahl asc
+;
 
